@@ -1,0 +1,32 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - override /model: brf
+  - override /dataset: ecg
+  - override /lr_scheduler: linear300ep
+  - override /optimizer: adam
+
+experiment_name: brf_ecg_bptt
+
+
+model:
+  hidden_layer_hyperparams:
+    omega_range: [3.0, 5.0]
+    b_range: [0.1, 1.0]
+    use_exponential: false
+  hidden_size: 36
+
+
+training:
+  hypr: false
+  learning_rate: 0.1
+  grad_clip_val: 10000000.0
+  loss_aggregation: per_timestep_cross_entropy
+  prediction_mode: per_timestep_prediction
+  epochs: 300
+
+dataset:
+  batch_size: 16
+  ignore_first_n_timesteps: 0
+  clip_to_1: true

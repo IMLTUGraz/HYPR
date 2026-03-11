@@ -1,0 +1,8 @@
+dataset_name: "ecg"
+subdirectory: "ECG" 
+train_file_name: "QTBD_train.mat"
+test_file_name: " QTBD_test.mat"
+batch_size: 256
+num_classes: 6
+ignore_first_n_timesteps: 50
+seed: ${seed}

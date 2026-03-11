@@ -1,0 +1,33 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - override /model: alif
+  - override /dataset: shd_4ms_140
+  - override /lr_scheduler: constant
+  - override /optimizer: adam
+
+experiment_name: alif_shd_hypr
+
+training:
+  learning_rate: 0.01
+  loss_aggregation: sum_of_softmax
+  prediction_mode: sum_of_softmax
+  hypr: true
+
+model:
+  hidden_size: 256
+  num_layers: 2
+  hidden_layer_hyperparams:
+    b_j0: 0.01
+    tau_u_mean: 20
+    tau_u_std: 5
+    tau_a_mean: 150
+    tau_a_std: 10
+  output_layer_params:
+    tau_u_range: [5, 20]
+
+dataset:
+  ignore_first_n_timesteps: 50
+  clip_to_1: false
+

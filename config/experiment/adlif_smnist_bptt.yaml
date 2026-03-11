@@ -1,0 +1,27 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - override /model: adlif1l
+  - override /dataset: smnist
+  - override /lr_scheduler: linear300ep
+  - override /optimizer: adam
+
+experiment_name: adlif_smnist_bptt
+
+training:
+  learning_rate: 0.01
+  loss_aggregation: sum_of_softmax
+  prediction_mode: sum_of_softmax
+  hypr: false
+  epochs: 300
+  
+model:
+  num_layers: 2
+  hidden_size: 360
+
+
+dataset:
+  batch_size: 512
+  ignore_first_n_timesteps: 500
+  #clip_to_1: true

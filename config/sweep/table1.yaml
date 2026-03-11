@@ -1,0 +1,6 @@
+# @package _global_
+
+hydra:
+  sweeper:
+    params:
+      experiment: adlif_ecg_bptt,adlif_ecg_hypr,adlif_shd_bptt,adlif_shd_hypr,adlif_smnist_bptt,adlif_smnist_hypr,alif_ecg_bptt,alif_ecg_hypr,alif_shd_bptt,alif_shd_hypr,alif_smnist_bptt,alif_smnist_hypr,brf_ecg_bptt,brf_ecg_hypr,brf_shd_bptt,brf_shd_hypr,brf_smnist_bptt,brf_smnist_hypr

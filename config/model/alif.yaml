@@ -1,0 +1,17 @@
+hidden_size: 360
+num_layers: 1
+hidden_layer_recurrent: true #true
+hidden_layer_class: ALIF
+hidden_layer_hyperparams:
+  tau_u_range: ??? #[.5, 20]
+  tau_a_range: ??? #[.2, 7]
+  beta: 1.8
+  b_j0: 0.01
+output_layer_class: LI
+output_layer_params:
+  interpolation_tau: false
+  tau_u_range: ??? #[15, 15]
+hidden_layer_kernel_initializer: xavier_uniform
+hidden_layer_rec_initializer: zeros
+output_layer_initializer: xavier_uniform
+hidden_layer_bias: true

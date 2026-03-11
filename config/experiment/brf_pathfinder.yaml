@@ -1,0 +1,30 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - override /model: brf
+  - override /dataset: pathfinder
+  - override /lr_scheduler: cosine_300ep
+  - override /optimizer: adam
+
+experiment_name: brf_pathfinder
+
+model:
+  hidden_size: 1024
+  hidden_layer_hyperparams:
+    omega_range: [15.0, 50.0]
+    b_range: [0.0001, 0.1]
+    use_exponential: false
+    surrogate_gradient: double_gaussian
+
+training:
+  learning_rate: 0.002
+  grad_clip_val: 1.0
+  loss_aggregation: per_timestep_cross_entropy
+  prediction_mode: mean_over_sequence
+  epochs: 300
+
+dataset:
+  split: "easy"
+  batch_size: 128
+  ignore_first_n_timesteps: 1023

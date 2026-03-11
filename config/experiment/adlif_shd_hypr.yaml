@@ -1,0 +1,17 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - override /model: adlif1l
+  - override /dataset: shd_4ms_140
+  - override /lr_scheduler: constant
+  - override /optimizer: adam
+
+experiment_name: adlif_shd_hypr
+
+training:
+  learning_rate: 0.01
+  hypr: true
+
+model:
+  num_layers: 2

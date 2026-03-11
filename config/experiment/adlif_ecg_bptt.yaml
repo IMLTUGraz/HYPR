@@ -1,0 +1,26 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - override /model: adlif1l
+  - override /dataset: ecg
+  - override /lr_scheduler: constant
+  - override /optimizer: adam
+
+experiment_name: adlif_ecg_bptt
+
+training:
+  learning_rate: 0.01
+  loss_aggregation: per_timestep_cross_entropy
+  prediction_mode: per_timestep_prediction
+
+dataset:
+  batch_size: 64
+  #ignore_first_n_timesteps: 783
+
+
+model:
+  num_layers: 2
+  hidden_size: 64
+  output_layer_params:
+    tau_u_range: [3, 3]

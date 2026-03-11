@@ -1,0 +1,7 @@
+# @package _global_
+
+hydra:
+  sweeper:
+    params:
+      experiment: adlif_shd_bptt,adlif_shd_hypr,adlif_smnist_bptt,adlif_smnist_hypr,brf_shd_bptt_orig,brf_shd_hypr,brf_shd_large_bptt,brf_smnist_bptt,brf_smnist_hypr
+      model.hidden_layer_recurrent: false

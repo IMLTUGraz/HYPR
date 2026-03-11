@@ -1,0 +1,19 @@
+hidden_size: 360
+num_layers: 1
+hidden_layer_recurrent: true #true
+hidden_layer_class: AdLIF
+hidden_layer_hyperparams:
+  tau_u_range: [5, 25]
+  tau_w_range: [60, 300]
+  a_range: [0.0, 1.0]
+  b_range: [0.0, 1.0]
+  thr: 1.0
+  adapt_coeff: 120
+output_layer_class: LI
+output_layer_params:
+  tau_u_range: [15, 15]
+  interpolation_tau: true
+hidden_layer_kernel_initializer: lecun_uniform
+hidden_layer_rec_initializer: orthogonal
+output_layer_initializer: lecun_uniform
+hidden_layer_bias: true

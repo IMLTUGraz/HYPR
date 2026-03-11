@@ -1,0 +1,27 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - override /model: brf
+  - override /dataset: smnist
+  - override /lr_scheduler: linear300ep
+  - override /optimizer: adam
+
+experiment_name: brf_smnist_bptt
+
+model:
+  hidden_size: 256
+  hidden_layer_hyperparams:
+    omega_range: [15.0, 50.0]
+    b_range: [0.1, 1.0]
+    use_exponential: false
+
+training:
+  learning_rate: 0.1
+  grad_clip_val: 1.0
+  loss_aggregation: last_timestep_cross_entropy 
+  prediction_mode: last_timestep_prediction
+  epochs: 300
+
+dataset:
+  batch_size: 256

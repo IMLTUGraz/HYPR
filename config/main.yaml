@@ -1,0 +1,49 @@
+defaults:
+  - _self_
+  - dataset: ???
+  - model: ???
+  - lr_scheduler: ???
+  - optimizer: ???
+  - experiment: brf_shd_hypr
+  
+# debugging stuff
+debug: false
+search_for_nan: false
+plot_a_datasample: false
+profiling: false
+
+extensive_logging: false
+
+data_dir: ???
+result_dir: ./results
+
+seed: 0
+
+experiment_name: ???
+
+training:
+  learning_rate: 0.01
+  hypr: false
+  actual_hypr: false
+  epochs: 300
+  patience: 200000
+  grad_clip_val: 10.0
+  loss_aggregation: sum_of_softmax # one of 'sum_of_softmax', 'per_timestep_cross_entropy'
+  prediction_mode: sum_of_softmax
+  eval_model_online: false
+  online_eval_subseq_len: 1024
+
+
+hypr_args:
+  num_chunks: 1
+
+    
+hydra:  
+  job:
+    # name: ${trainer.logger.experiment}
+    chdir: true
+  run:
+    dir: ${result_dir}/hydra/${now:%Y-%m-%d}/${now:%H-%M-%S}
+  sweep:
+    dir: ${result_dir}/hydra/${now:%Y-%m-%d}/${now:%H-%M-%S}
+    subdir: ${hydra.job.num}

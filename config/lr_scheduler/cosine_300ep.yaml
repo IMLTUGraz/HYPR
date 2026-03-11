@@ -1,0 +1,3 @@
+name: cosine
+init_factor: 1.0
+transition_epochs: 300 

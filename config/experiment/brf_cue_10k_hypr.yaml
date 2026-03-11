@@ -1,0 +1,35 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - override /model: brf
+  - override /dataset: cue10k
+  - override /lr_scheduler: constant
+  - override /optimizer: adam
+
+experiment_name: brf_cue
+
+hypr_args:
+  num_chunks: 10
+
+
+model:
+  hidden_size: 1024
+  num_layers: 1
+  hidden_layer_hyperparams:
+    omega_range: [0.01, 10.0]
+    b_range: [0.000000001, 0.00010]
+    surrogate_gradient: slayer_wide
+
+training:
+  hypr: true
+  learning_rate: 0.01
+  grad_clip_val: 10.0
+  loss_aggregation: per_timestep_cross_entropy
+  prediction_mode: mean_over_sequence
+  epochs: 200
+  eval_model_online: true
+  online_eval_subseq_len: 1000
+
+dataset:
+  batch_size: 128

@@ -1,0 +1,12 @@
+dataset_name: "cue"
+prob_A: 0.2
+prob_B: 0.3
+prob_cue: 0.5
+num_samples: 256
+batch_size: 64
+seq_len: 20
+delay: 20
+total_seq_len: 60  # 20 (A/B) + 20 (delay) + 20 (cue)
+input_dim: 15
+train_ratio: 0.8
+ignore_first_n_timesteps: 40

@@ -1,0 +1,38 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - override /model: alif
+  - override /dataset: smnist
+  - override /lr_scheduler: constant
+  - override /optimizer: adam
+
+experiment_name: alif_smnist_hypr
+
+
+training:
+  learning_rate: 0.003
+  loss_aggregation: sum_of_softmax
+  prediction_mode: sum_of_softmax
+  hypr: true
+  epochs: 300
+  
+model:
+  num_layers: 2 
+  hidden_size: 256
+  hidden_layer_hyperparams:
+    tau_u_mean: 20
+    tau_u_std: 5
+    tau_a_mean: 200
+    tau_a_std: 25
+    b_j0: 0.5
+    beta: 1.0
+  output_layer_params:
+    tau_u_mean: 20
+    tau_u_std: 5
+    tau_u_range: [20, 20]
+
+dataset:
+  batch_size: 256
+  #ignore_first_n_timesteps: 100
+  #clip_to_1: true

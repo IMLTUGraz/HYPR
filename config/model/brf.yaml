@@ -1,0 +1,35 @@
+hidden_size: 128
+num_layers: 1
+hidden_layer_recurrent: true
+hidden_layer_class: BRF
+hidden_layer_hyperparams:
+  thr: 1.0
+  dt: 0.01
+  exponential_b: false
+  exponential_omega: false
+  surrogate_gradient: double_gaussian
+  use_exponential: false
+output_layer_class: LI
+output_layer_params:
+  #out_features: 10
+  tau_u_range: [15, 25]
+  interpolation_tau: false
+
+hidden_layer_kernel_initializer: xavier_uniform_custom
+hidden_layer_rec_initializer: xavier_uniform_custom
+# hidden_layer_rec_initializer: zeros
+output_layer_initializer: xavier_uniform_custom
+hidden_layer_bias: true
+
+
+
+
+
+### original parameters
+    # omega:
+    #     omega_a = 5.0
+    #     omega_b = 10.0
+
+    # b_offset:
+    #     b_offset_a = 2.0
+    #     b_offset_b = 3.0

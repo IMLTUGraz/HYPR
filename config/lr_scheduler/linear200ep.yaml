@@ -1,0 +1,4 @@
+name: linear
+init_factor: 1.0
+end_factor: 0.0
+transition_epochs: 200 

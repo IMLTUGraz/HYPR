@@ -1,0 +1,35 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - override /model: alif
+  - override /dataset: ecg
+  - override /lr_scheduler: constant
+  - override /optimizer: adam
+
+experiment_name: alif_ecg_hypr
+
+
+training:
+  learning_rate: 0.01
+  loss_aggregation: per_timestep_cross_entropy
+  prediction_mode: per_timestep_prediction
+  epochs: 300
+  hypr: true
+
+dataset:
+  batch_size: 16 #64
+  #ignore_first_n_timesteps: 783
+
+
+model:
+  hidden_size: 36 #160
+  num_layers: 2
+  hidden_layer_hyperparams:
+    tau_u_mean: 20
+    tau_u_std: 0
+    tau_a_mean: 100
+    tau_a_std: 0
+  output_layer_params:
+    tau_u_range: [5, 5]
+  hidden_layer_rec_initializer: orthogonal

@@ -1,0 +1,30 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - override /model: brf
+  - override /dataset: shd_4ms_140
+  - override /lr_scheduler: linear20ep
+  - override /optimizer: adam
+
+experiment_name: brf_shd_bptt
+
+model:
+  hidden_layer_hyperparams:
+    omega_range: [5.0, 10.0]
+    b_range: [2.0, 3.0]
+    use_exponential: false
+  hidden_size: 128
+
+training:
+  learning_rate: 0.075
+  grad_clip_val: 10000000.0
+  loss_aggregation: per_timestep_cross_entropy
+  prediction_mode: mean_over_sequence
+  epochs: 20
+  hypr: false
+
+dataset:
+  batch_size: 32
+  ignore_first_n_timesteps: 0
+  clip_to_1: true

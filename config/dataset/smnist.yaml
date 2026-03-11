@@ -1,0 +1,10 @@
+dataset_name: "smnist"
+subdirectory: "MNIST" 
+
+train_file_name: 
+test_file_name: 
+batch_size: 256
+num_classes: 10
+ignore_first_n_timesteps: 500
+permute: false
+seed: ${seed}

@@ -1,0 +1,13 @@
+dataset_name: "pathfinder"
+subdirectory: "PATHFINDER"
+
+train_file_name: 
+test_file_name: 
+batch_size: 256
+num_classes: 2
+ignore_first_n_timesteps: 500
+seed: ${seed}
+
+normalize: false
+resolution: 32
+split: "easy"
